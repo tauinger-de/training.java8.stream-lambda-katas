@@ -14,7 +14,7 @@ public class Util {
                 .collect(Collectors.toList());
     }
 
-    public static List<String> removeElementsWithMoreThanFourCharacters(List<String> input) {
+    public static List<String> removeElementsWithFourOrMoreCharacters(List<String> input) {
         throw new RuntimeException("not implemented");
     }
 
