@@ -3,11 +3,15 @@ package com.github.jorgenringen.lambda.stream;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Util {
 
     public static List<String> mapToUppercase(List<String> input) {
-        throw new RuntimeException("not implemented");
+        return input
+                .stream()
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
     }
 
     public static List<String> removeElementsWithMoreThanFourCharacters(List<String> input) {
