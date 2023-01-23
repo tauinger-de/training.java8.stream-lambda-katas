@@ -1,10 +1,6 @@
 package com.github.jorgenringen.lambda.stream;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.IntSummaryStatistics;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Util {
@@ -24,42 +20,42 @@ public class Util {
     }
 
     public static List<String> sortStrings(List<String> input) {
-    	return input
-    	.stream()
-    	.sorted()
-    	.collect(Collectors.toList());
+        return input
+                .stream()
+                .sorted()
+                .collect(Collectors.toList());
     }
 
     public static List<Integer> sortIntegers(List<String> input) {
-    	return input
-    			.stream()
-    			.mapToInt(Integer::parseInt)
-    			.boxed()
-    			.sorted()
-    			.collect(Collectors.toList());
+        return input
+                .stream()
+                .mapToInt(Integer::parseInt)
+                .boxed()
+                .sorted()
+                .collect(Collectors.toList());
     }
 
     public static List<Integer> sortIntegersDescending(List<String> input) {
-    	return input
-    			.stream()
-    			.mapToInt(Integer::parseInt)
-    			.boxed()
-    			.sorted(Collections.reverseOrder())
-    			.collect(Collectors.toList());
+        return input
+                .stream()
+                .mapToInt(Integer::parseInt)
+                .boxed()
+                .sorted(Collections.reverseOrder())
+                .collect(Collectors.toList());
     }
 
     public static Integer sum(List<Integer> numbers) {
-    	return numbers
-    			.stream()
-    			.mapToInt(Integer::intValue)
-    			.sum();
+        return numbers
+                .stream()
+                .mapToInt(Integer::intValue)
+                .sum();
     }
 
     public static List<String> flattenToSingleCollection(List<List<String>> input) {
-    	return input
-    			.stream()
-    			.flatMap(l -> l.stream())
-    			.collect(Collectors.toList());
+        return input
+                .stream()
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
     }
 
     public static String separateNamesByComma(List<Person> input) {
