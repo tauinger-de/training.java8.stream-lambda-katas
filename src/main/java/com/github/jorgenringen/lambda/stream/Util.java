@@ -1,10 +1,10 @@
 package com.github.jorgenringen.lambda.stream;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Util {
@@ -24,23 +24,42 @@ public class Util {
     }
 
     public static List<String> sortStrings(List<String> input) {
-        throw new RuntimeException("not implemented");
+    	return input
+    	.stream()
+    	.sorted()
+    	.collect(Collectors.toList());
     }
 
     public static List<Integer> sortIntegers(List<String> input) {
-        throw new RuntimeException("not implemented");
+    	return input
+    			.stream()
+    			.mapToInt(Integer::parseInt)
+    			.boxed()
+    			.sorted()
+    			.collect(Collectors.toList());
     }
 
     public static List<Integer> sortIntegersDescending(List<String> input) {
-        throw new RuntimeException("not implemented");
+    	return input
+    			.stream()
+    			.mapToInt(Integer::parseInt)
+    			.boxed()
+    			.sorted(Collections.reverseOrder())
+    			.collect(Collectors.toList());
     }
 
     public static Integer sum(List<Integer> numbers) {
-        throw new RuntimeException("not implemented");
+    	return numbers
+    			.stream()
+    			.mapToInt(Integer::intValue)
+    			.sum();
     }
 
     public static List<String> flattenToSingleCollection(List<List<String>> input) {
-        throw new RuntimeException("not implemented");
+    	return input
+    			.stream()
+    			.flatMap(l -> l.stream())
+    			.collect(Collectors.toList());
     }
 
     public static String separateNamesByComma(List<Person> input) {
